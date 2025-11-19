@@ -15,9 +15,9 @@
 
         if (calcBMI < 18.5) {
           console.log("BMI=", calcBMI, "thiếu cân");
-        } else if (18.5 <= calcBMI < 23) {
-          console.log(`BMI= ${calcBMI} bình thường`);
-        } else if (23 <= calcBMI < 25) {
+        } else if (18.5 <= calcBMI && calcBMI < 23) {
+          console.log("BMI=", calcBMI, "Bình thường");
+        } else if (23 <= calcBMI && calcBMI < 25) {
           console.log("BMI=", calcBMI, "Thừa cân");
         } else {
           console.log("BMI=", calcBMI, "béo");
