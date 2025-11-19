@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const w = parseFloat(window.prompt("nhập vào weight"));
+      const h = parseFloat(window.prompt("nhập vào height"));
+      calcBMI(w, h);
+      function calcBMI(weight, height) {
+        let calcBMI = (weight / height ** 2).toFixed(2);
+
+        if (calcBMI < 18.5) {
+          console.log("BMI=", calcBMI, "thiếu cân");
+        } else if (18.5 <= calcBMI < 23) {
+          console.log(`BMI= ${calcBMI} bình thường`);
+        } else if (23 <= calcBMI < 25) {
+          console.log("BMI=", calcBMI, "Thừa cân");
+        } else {
+          console.log("BMI=", calcBMI, "béo");
+        }
+      }
+    </script>
+  </body>
+</html>
