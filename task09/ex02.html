@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>In số nguyên tố</title>
+  </head>
+  <body>
+    <script>
+      const n = Number(window.prompt("Mời nhập n:"));
+      function isPrime(num) {
+        if (num < 2) {
+          return;
+        }
+        for (let i = 2; i < num; i++) {
+          if (num % i === 0) {
+            return;
+          }
+        }
+        return true;
+      }
+
+      function printPrimeNumber(n) {
+        for (let i = 2; i <= n; i++) {
+          if (isPrime(i)) {
+            console.log(i);
+          }
+        }
+      }
+      printPrimeNumber(n);
+    </script>
+  </body>
+</html>

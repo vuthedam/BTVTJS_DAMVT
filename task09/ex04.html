@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cây thông Noel</title>
+  </head>
+  <body>
+    <script>
+      function printChristmasTree() {
+        let n = Number(window.prompt("Nhập chiều cao n:"));
+        if (!Number.isInteger(n) || n <= 0 || n >= 100) {
+          console.log("Lỗi: n phải là số nguyên dương nhỏ hơn 100");
+          return;
+        }
+
+        let character = window.prompt("Nhập ký tự để vẽ cây:");
+        if (character.length !== 1) {
+          console.log("Lỗi: Bạn phải nhập đúng 1 ký tự!");
+          return;
+        }
+
+        for (let i = 1; i <= n; i++) {
+          const spaces = " ".repeat(n - i);
+          const chars = character.repeat(2 * i - 1);
+          console.log(spaces + chars);
+        }
+
+        const space = " ".repeat(n - 1);
+        console.log(space + character);
+      }
+
+      // Gọi hàm
+      printChristmasTree();
+    </script>
+  </body>
+</html>
