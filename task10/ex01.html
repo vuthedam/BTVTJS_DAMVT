@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function countWords(string) {
+        string = string.trim();
+
+        if (string === "") return 0;
+
+        let count = 0;
+        let inWord = false;
+
+        for (let i = 0; i < string.length; i++) {
+          if (string[i] !== " ") {
+            if (!inWord) {
+              count++;
+              inWord = true;
+            }
+          } else {
+            inWord = false;
+          }
+        }
+
+        return count;
+      }
+      console.log(countWords("   Hôm  nay   trời đẹp quá   "));
+    </script>
+  </body>
+</html>
