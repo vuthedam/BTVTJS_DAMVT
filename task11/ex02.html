@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let cart = [];
+      function addToCart(cart, product) {
+        let found = false;
+
+        for (let i = 0; i < cart.length; i++) {
+          if (cart[i].id === product.id) {
+            cart[i].quantity++;
+            found = true;
+            break;
+          }
+        }
+
+        if (!found) {
+          cart.push({
+            id: product.id,
+            title: product.title,
+            price: product.price,
+          });
+        }
+      }
+
+      addToCart(cart, { id: 1, title: "A", price: 100 });
+      addToCart(cart, { id: 1, title: "A", price: 100 });
+      addToCart(cart, { id: 2, title: "B", price: 200 });
+
+      console.log(cart);
+    </script>
+  </body>
+</html>

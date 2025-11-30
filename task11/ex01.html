@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const numbers = [2, 15, 30, 55, 60, 77, 90];
+
+      function findNearest(arr, x) {
+        let min = Infinity;
+        let nearest = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+          let a = Math.abs(arr[i] - x);
+          if (a < min) {
+            min = a;
+            nearest = arr[i];
+          }
+        }
+
+        console.log(nearest);
+      }
+      findNearest(numbers, 10);
+      findNearest(numbers, 58);
+    </script>
+  </body>
+</html>

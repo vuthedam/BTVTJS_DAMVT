@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // * bài 1
+      //   function filterEvenNumbers(arr) {
+      //     const newArr = [];
+      //     for (let i = 0; i < arr.length; i++) {
+      //       if (arr[i] % 2 == 0) {
+      //         newArr[newArr.length] = arr[i];
+      //       }
+      //     }
+      //     console.log(newArr);
+      //   }
+      //   filterEvenNumbers([1, 2, 3, 4, 5, 6]);
+
+      // * bài 2
+      //   newArr = [];
+      //   function filterLongStrings(arr) {
+      //     for (let i = 0; i < arr.length; i++) {
+      //       if (arr[i].length > 5) {
+      //         newArr.push(arr[i]);
+      //       }
+      //     }
+      //     console.log(newArr);
+      //   }
+      //   filterLongStrings(["hello", "world", "javascript", "nodejs"]); // Output: ["javascript", "nodejs"]
+      //   filterLongStrings(["hi", "hello world", "a b c", "goodbye!!"]); // Output: ["hello world", "goodbye!!"]
+      //   filterLongStrings(["hi", "bye", "yes"]); // Output: []
+
+      //* bài3
+
+      // Input:
+
+      //   function findMinMaxAverage(arr) {
+      //     let max = arr[0];
+      //     let min = arr[0];
+      //     let sum = 0;
+      //     let count = 0;
+      //     let primeAverage = 0;
+      //     let maxIndex = 0;
+      //     let minIndex = 0;
+
+      //     for (let i = 0; i < arr.length; i++) {
+      //       if (max < arr[i]) {
+      //         max = arr[i];
+      //         maxIndex = i;
+      //       }
+      //       if (min > arr[i]) {
+      //         min = arr[i];
+      //         minIndex = i;
+      //       }
+      //       if (checkPrime(arr[i])) {
+      //         sum += arr[i];
+      //         count++;
+      //       }
+      //       primeAverage = sum / count;
+      //     }
+
+      //     console.log(
+      //       `${sum},${count},${Number(
+      //         primeAverage.toFixed(2)
+      //       )},${max},${maxIndex},${min},${minIndex}`
+      //     );
+      //   }
+      //   function checkPrime(n) {
+      //     if (n < 2) return false;
+      //     for (let i = 2; i < n; i++) {
+      //       if (n % i == 0) return false;
+      //     }
+      //     return true;
+      //   }
+
+      //   // Output:
+      //   findMinMaxAverage([3, 1, 4, 1, 5, 9, 2, 6]); // Output: {max: 9, maxIndex: 5, min: 1, minIndex: 1, primeAverage: 3.33 }
+      //   findMinMaxAverage([5, 5, 2, 2, 1]); // Output: {max: 5, maxIndex: 0, min: 1, minIndex: 4, primeAverage: 3.5 }
+      //   findMinMaxAverage([-3, 7, -8, 11, 0]); // Output: {max: 11, maxIndex: 3, min: -8, minIndex: 2, primeAverage: 9 }
+
+      //bài 4
+    </script>
+  </body>
+</html>
