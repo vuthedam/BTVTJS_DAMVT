@@ -7,32 +7,51 @@
   </head>
   <body>
     <script>
-      let cart = [];
-      function addToCart(cart, product) {
-        let found = false;
-
-        for (let i = 0; i < cart.length; i++) {
-          if (cart[i].id === product.id) {
-            cart[i].quantity++;
-            found = true;
-            break;
+        let cart = [
+          { id: 1, name: "ao", price: 100, quantity: 1 },
+          { id: 2, name: "quan", price: 200, quantity: 1 },
+          { id: 3, name: "khan", price: 50, quantity: 1 },
+        ];
+        function addToCart(cart, product) {
+          const item = cart.find((item) => item.id === product.id);
+          if (item) {
+            item.quantity += 1;
+          } else {
+            cart.push(product);
           }
+          return cart;
         }
 
-        if (!found) {
-          cart.push({
-            id: product.id,
-            title: product.title,
-            price: product.price,
-          });
+        function removeFromCart(cart, id) {
+          const item = cart.find((item) => item.id === id);
+          if (item) {
+            item.quantity -= 1;
+
+            if (item.quantity <= 0) {
+              const index = cart.findIndex((i) => i.id === id);
+              if (index !== -1) {
+                cart.splice(index, 1);
+              }
+            }
+          }
+
+          return cart;
         }
-      }
 
-      addToCart(cart, { id: 1, title: "A", price: 100 });
-      addToCart(cart, { id: 1, title: "A", price: 100 });
-      addToCart(cart, { id: 2, title: "B", price: 200 });
+        function getTotal(cart) {
+          let total = 0;
 
-      console.log(cart);
+          for (let i = 0; i < cart.length; i++) {
+            total += cart[i].price * cart[i].quantity;
+          }
+          return total;
+        }
+
+        addToCart(cart, { id: 3, name: "ao", price: 100 });
+        removeFromCart(cart, 3);
+
+        console.log(cart);
+        console.log(getTotal(cart));
     </script>
   </body>
 </html>
