@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function isPrime(n) {
+        if (n < 2) return false;
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+          if (n % i === 0) return false;
+        }
+        return true;
+      }
+
+      function findMinMaxAverage(arr) {
+        const newArr = arr.slice();
+
+        let max = newArr[0];
+        let min = newArr[0];
+
+        for (let i = 1; i < newArr.length; i++) {
+          if (newArr[i] > max) {
+            max = newArr[i];
+          }
+          if (newArr[i] < min) {
+            min = newArr[i];
+          }
+        }
+
+        const maxIndex = newArr.findIndex((value) => value === max);
+        const minIndex = newArr.findIndex((value) => value === min);
+
+        const primeNumbers = newArr.filter(isPrime);
+
+        let primeAverage = null;
+
+        if (primeNumbers.length > 0) {
+          let sum = 0;
+
+          for (let i = 0; i < primeNumbers.length; i++) {
+            sum += primeNumbers[i];
+          }
+
+          primeAverage = Number((sum / primeNumbers.length).toFixed(2));
+        }
+
+        return { max, maxIndex, min, minIndex, primeAverage };
+      }
+      console.log(findMinMaxAverage([3, 1, 4, 1, 5, 9, 2, 6]));
+    </script>
+  </body>
+</html>
