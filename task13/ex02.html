@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const logs = [
+        { user: "A", action: "login", time: "2024-01-01" },
+        { user: "B", action: "login", time: "2024-01-01" },
+        { user: "A", action: "logout", time: "2024-01-02" },
+        { user: "A", action: "purchase", time: "2024-01-02" },
+        { user: "C", action: "login", time: "2024-01-01" },
+      ];
+
+      const result = logs.reduce((acc, cur) => {
+        if (!acc[cur.time]) {
+          acc[cur.time] = { login: 0, purchase: 0, logout: 0 };
+        }
+        if (acc[cur.time]) {
+          acc[cur.time][cur.action]++;
+        }
+        return acc;
+      }, {});
+
+      console.log(result);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const orders = [
+        {
+          id: 1,
+          items: [
+            { product: "A", qty: 2, price: 100 },
+            { product: "B", qty: 1, price: 200 },
+          ],
+        },
+        {
+          id: 2,
+          items: [
+            { product: "A", qty: 1, price: 100 },
+            { product: "C", qty: 4, price: 50 },
+          ],
+        },
+      ];
+      // Yêu cầu:
+      // Tạo bảng tổng hợp doanh thu từng sản phẩm:
+      const result = orders.reduce((acc, order) => {
+        order.items.forEach((item) => {
+          if (!acc[item.product]) {
+            acc[item.product] = 0;
+          }
+          acc[item.product] += item.qty * item.price;
+        });
+        return acc;
+      }, {});
+
+      console.log(result);
+    </script>
+  </body>
+</html>
