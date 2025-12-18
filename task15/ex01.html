@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arrayString = ["name:John", "age:30", "city:NY"];
+      function convertArrayToObject(array) {
+        const result = {};
+        array.forEach((item) => {
+          const [name, value] = item.split(":");
+          result[name] = value;
+        });
+        return result;
+      }
+
+      // Output:
+      console.log(convertArrayToObject(arrayString)); // { name: 'John', age: '30', city: 'NY' }
+    </script>
+  </body>
+</html>
