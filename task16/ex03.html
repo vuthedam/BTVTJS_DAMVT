@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.11.0/axios.min.js"
+      ;
+      integrity="sha512-h9644v03pHqrIHThkvXhB2PJ8zf5E9IyVnrSfZg8Yj8k4RsO4zldcQc4Bi9iVLUCCsqNY0b4WXVV4UB+wbWENA=="
+      ;
+      crossorigin="anonymous"
+      ;
+      referrerpolicy="no-referrer"
+      ;
+    ></script>
+    <script>
+      //         Gọi API và xử lý dữ liệu
+      // Yêu cầu
+      // Sử dụng fetch hoặc axios để gọi API: https://jsonplaceholder.typicode.com/users
+      // Thực hiện các bước:
+      // Lấy danh sách users từ API.
+      // Lọc các user có id > 5.
+      // Tạo mảng chỉ chứa tên (name) của các user đó.
+      // Hiển thị kết quả lên website
+      // Kết quả mong đợi
+      // In ra mảng đã sử lý lọc dữ liệu user id > 5 và chỉ chứa các tên của user đó:
+      // ["Chelsey Dietrich", "Mrs. Dennis Schulist", "Kurtis Weissnat"]
+      // Hiển thị danh sách tên của các user lên màn hình website
+      const url = "https://jsonplaceholder.typicode.com";
+
+      async function fetchUsers() {
+        try {
+          const { data } = await axios.get(`${url}/users`);
+          console.log(data);
+          const name = data.filter((item) => item.id > 5);
+
+          const names = name.map((n) => n.name);
+          document.write(names.join("<br>"));
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      fetchUsers();
+    </script>
+  </body>
+</html>
