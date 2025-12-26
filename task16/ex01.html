@@ -27,6 +27,7 @@
             console.log(message);
           }, ms);
         });
+        return promise;
       }
 
       delayLog("Hello", 1000).then(() => {
