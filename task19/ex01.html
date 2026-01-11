@@ -52,12 +52,12 @@
         resultInput.value = "";
 
         if (num1 === "" || num2 === "") {
-          resultInput.value = "Lỗi: Chưa nhập đủ hai số";
+          alert("Lỗi: Chưa nhập đủ hai số");
           return;
         }
 
         if (!tinh) {
-          resultInput.value = "Lỗi: Chưa chọn phép tính";
+          alert("Lỗi: Chưa chọn phép tính");
           return;
         }
 
@@ -73,7 +73,7 @@
           result = a * b;
         } else if (tinh === "/") {
           if (b === 0) {
-            resultInput.value = "Lỗi: Không thể chia cho 0";
+            alert("Lỗi: Không thể chia cho 0");
             return;
           }
           result = a / b;
