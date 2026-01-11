@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Ứng dụng Chia Bill</h1>
+
+    <form id="billForm">
+      <div>
+        <label>Tổng bill (VND)</label>
+        <input type="number" name="totalBill" />
+      </div>
+
+      <div>
+        <label>Số người chia</label>
+        <input type="number" name="people" />
+      </div>
+
+      <div>
+        <label>Tiền tip (VND)</label>
+        <input type="number" name="tip" />
+      </div>
+
+      <div>
+        <button type="submit">Tính tiền</button>
+      </div>
+
+      <div>
+        <label>Kết quả</label>
+        <input type="text" id="result" readonly />
+      </div>
+    </form>
+
+    <script>
+      const form = document.getElementById("billForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const formData = new FormData(form);
+
+        const totalBill = Number(formData.get("totalBill"));
+        const people = Number(formData.get("people"));
+        const tip = Number(formData.get("tip"));
+
+        const resultInput = document.getElementById("result");
+        resultInput.value = "";
+
+        // Validate rỗng
+        if (totalBill === "" || people === "" || tip === "") {
+          resultInput.value = "Lỗi: Vui lòng nhập đầy đủ thông tin";
+          return;
+        }
+
+        if (totalBill <= 0) {
+          alert("Lỗi: Tổng bill phải lớn hơn 0");
+          return;
+        }
+
+        if (people <= 0 || !Number.isInteger(people)) {
+          alert("Lỗi: Số người phải là số nguyên > 0");
+          return;
+        }
+
+        const totalPay = (totalBill + tip) / people;
+
+        resultInput.value = totalPay;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Bé tập tính Website</h1>
+
+    <form id="FormTinh">
+      <div>
+        <label>Số thứ nhất</label>
+        <input type="number" name="num1" />
+      </div>
+
+      <div>
+        <label>Số thứ hai</label>
+        <input type="number" name="num2" />
+      </div>
+
+      <div>
+        <input type="radio" name="tinh" value="+" /> Cộng
+        <input type="radio" name="tinh" value="-" /> Trừ
+        <input type="radio" name="tinh" value="*" /> Nhân
+        <input type="radio" name="tinh" value="/" /> Chia
+      </div>
+
+      <div>
+        <button type="submit">Kết quả</button>
+      </div>
+
+      <div>
+        <label>Kết quả</label>
+        <input type="text" id="result" readonly />
+      </div>
+    </form>
+
+    <script>
+      const form = document.getElementById("FormTinh");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        const num1 = formData.get("num1");
+        const num2 = formData.get("num2");
+        const tinh = formData.get("tinh");
+
+        const resultInput = document.getElementById("result");
+        resultInput.value = "";
+
+        if (num1 === "" || num2 === "") {
+          resultInput.value = "Lỗi: Chưa nhập đủ hai số";
+          return;
+        }
+
+        if (!tinh) {
+          resultInput.value = "Lỗi: Chưa chọn phép tính";
+          return;
+        }
+
+        const a = Number(num1);
+        const b = Number(num2);
+        let result;
+
+        if (tinh === "+") {
+          result = a + b;
+        } else if (tinh === "-") {
+          result = a - b;
+        } else if (tinh === "*") {
+          result = a * b;
+        } else if (tinh === "/") {
+          if (b === 0) {
+            resultInput.value = "Lỗi: Không thể chia cho 0";
+            return;
+          }
+          result = a / b;
+        }
+
+        resultInput.value = result;
+      });
+    </script>
+  </body>
+</html>
